@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "week_25.2_devops",
   "private": true,
   "scripts": {
     "build": "turbo run build",
