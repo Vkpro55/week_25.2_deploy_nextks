@@ -18,4 +18,4 @@ jobs:
           echo "${{secrets.KNOWN_HOSTS}}" &> ~/.ssh/known_hosts
           chmod 400 ~/.ssh/dev
           ls -la ~/.ssh
-          ssh -i ~/.ssh/dev dev@34.57.134.178 -C "dev" 'cd /home/dev/week_25.2_deploy_nextks && git pull origin main && pnpm install && pm2 restart all'
+          ssh -i ~/.ssh/dev dev@34.57.134.178 'cd /home/dev/week_25.2_deploy_nextks && git pull origin main && pnpm install && pm2 restart all'
