@@ -12,5 +12,5 @@ wss.on('connection', async (ws: WebSocket) => {
         }
     });
 
-    console.log('New client connected');
+    ws.send('Hello from WebSocket Backend!');
 });
