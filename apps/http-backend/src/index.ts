@@ -10,7 +10,7 @@ console.log('Starting HTTP Backend...');
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send("Hello from HTTP Backend!");
+    res.send("Hello from HTTP");
 });
 
 app.post('/signup', async (req, res) => {
