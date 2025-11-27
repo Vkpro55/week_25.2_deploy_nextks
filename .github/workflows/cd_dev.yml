@@ -16,7 +16,7 @@ jobs:
           mkdir ~/.ssh
           echo "${{secrets.SSH_PRIVATE_KEY_DEV}}" &> ~/.ssh/dev
           echo "${{secrets.KNOWN_HOSTS}}" &> ~/.ssh/known_hosts
-          chmode 400 ~/.ssh/dev
+          chmod 400 ~/.ssh/dev
           cat ~/.ssh/dev
           cat ~/.ssh/known_hosts
           ssh -i ~/.ssh/dev dev@34.57.134.178 -C "dev" 'cd /home/dev/week_25.2_deploy_nextks && git pull origin main && pnpm install && pm2 restart all'
