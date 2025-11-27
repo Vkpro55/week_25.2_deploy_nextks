@@ -23,6 +23,8 @@ jobs:
             cd /home/dev/week_25.2_deploy_nextks &&
             git pull origin main &&
             pnpm install &&
+            sudo reload -s nginx &&
+            sudo nginx -t && 
             pm2 restart all
           '
 
