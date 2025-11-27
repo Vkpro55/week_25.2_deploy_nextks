@@ -1,0 +1,19 @@
+name: Deploy to Dev Server
+
+on:
+  push:
+    branches:
+      - main   # Trigger inside the workflow on push to main branch
+
+jobs:
+  deploy: # Deploy job
+    name: Deploy every application (next, http-backend, ws-backend) to Dev Server (GCP VM)
+    runs-on: ubuntu-latest # This job will run on a GitHub-hosted Ubuntu VM
+
+    steps:
+      - name: SSH to Dev Server
+        run: |
+          mkdir ~/.ssh
+          echo "${{secrets.SSH_PRIVATE_KEY_DEV}}" &> ~/.ssh/dev
+          echo "${{secrets.KNOWN_HOSTS}}" &> ~/.ssh/known_hosts
+          ssh -i ~/.ssh/Dev dev@34.57.134.178 -C "dev" 'cd /home/dev/week_25.2_deploy_nextks && git pull origin main && pnpm install && pm2 restart all'
